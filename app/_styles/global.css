@@ -1,0 +1,44 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+html {
+  font-family: Noto Sans JP, sans-serif;
+  background-color: var(--color-background-primary);
+  color: var(--color-text-body);
+}
+
+svg {
+  fill: currentcolor;
+}
+
+path {
+  stroke: currentcolor;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}

@@ -1,0 +1,92 @@
+.tale {
+  width: 100%;
+  max-width: min(38em, calc(100% - 48px));
+  margin: var(--space-y-xxl) auto;
+}
+
+@media (width <= 48em) {
+  .tale {
+    margin-top: var(--space-y-xl);
+  }
+}
+
+/**
+ * Header
+ */
+.tale > header > small {
+  display: block;
+  width: 100%;
+  text-align: end;
+  margin-top: 1.4em;
+}
+
+/**
+ * Paragraph
+ */
+.tale p {
+  margin-top: 1.7em;
+  text-indent: 1.5em;
+}
+
+.tale p:first-of-type::first-letter {
+  initial-letter: 3 2; /* サンクンキャップ */
+}
+
+/**
+ * Heading
+ */
+.tale h2 {
+  margin-top: 1.4em;
+}
+.tale h3 {
+  margin-top: 1.2em;
+}
+.tale h4,
+.tale h5,
+.tale h6 {
+  margin-top: 1em;
+}
+
+/**
+ * Fleuron
+ */
+.tale hr {
+  height: calc(2em + 1.6vmin);
+  border: 0;
+  margin: 4.5em auto;
+  /* background: url('src/assets/icons/fleuron.svg') center no-repeat; */
+  background-size: contain;
+  content: '#10086';
+}
+
+.tale aside {
+  margin: 1em;
+
+  @media only screen and (min-width: 60em) {
+    width: 10em;
+    margin-top: 0;
+    margin-left: -11em;
+    float: left;
+  }
+
+  @media only screen and (min-width: 49em) {
+    width: 10em;
+    margin-top: 0;
+    margin-left: -5em;
+    float: left;
+  }
+}
+
+.tale details {
+  margin-bottom: 1.7em;
+}
+
+.tale details > p {
+  margin-bottom: 0;
+  margin-left: 1.125em;
+  font-size: 0.9em;
+}
+
+.tale details > p + p {
+  margin-top: 0.5625em;
+}
