@@ -21,13 +21,12 @@ export default async function Tale({ params }: { params: { slug: string } }) {
 /**
  * Dynamic Metadata
  */
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 
 export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
-  parent?: ResolvingMetadata;
 }): Promise<Metadata> {
   const tale = await getTale(params.slug);
   return {
