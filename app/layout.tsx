@@ -1,4 +1,4 @@
-import '@/_styles/index.css'
+import '@/app/_styles/index.css'
 
 export const metadata = {
   title: 'ものかがり',

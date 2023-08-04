@@ -6,7 +6,7 @@ export default async function Tales() {
   return (
     <section>
       {tales.map((tale) => (
-        <Link key={tale.id} href={'/' + tale.id}>
+        <Link key={tale.id} href={"/" + tale.id}>
           <h3>{tale.title}</h3>
         </Link>
       ))}
