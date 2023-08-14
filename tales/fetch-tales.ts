@@ -3,8 +3,9 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
+import { Locale } from "@/i18n/i18n-config";
 
-const talesDirectory = path.join(process.cwd(), "tales");
+const getTalesDirectory = (lang: Locale) => path.join(process.cwd(), `tales/${lang}`);
 
 export type Tale = {
   id: string;
@@ -14,9 +15,9 @@ export type Tale = {
   contentHtml: string;
 };
 
-async function getTaleByMarkdown (fileName: string) {
+async function getTaleByMarkdown (fileName: string, lang: Locale) {
   const id = fileName.replace(/\.md$/, "");
-  const fullPath = path.join(talesDirectory, fileName);
+  const fullPath = path.join(getTalesDirectory(lang), fileName);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
   const matterResult = matter(fileContents);
@@ -32,10 +33,10 @@ async function getTaleByMarkdown (fileName: string) {
   } as Tale;
 };
 
-export async function getSortedTales() {
-  const fileNames = fs.readdirSync(talesDirectory);
+export async function getSortedTales(lang: Locale) {
+  const fileNames = fs.readdirSync(getTalesDirectory(lang));
   const allTales = await Promise.all(fileNames.map(async (fileName) => {
-    const tales = await getTaleByMarkdown(fileName)
+    const tales = await getTaleByMarkdown(fileName, lang)
     return tales
   }));
   return allTales.sort((a, b) => {
@@ -47,8 +48,8 @@ export async function getSortedTales() {
   });
 }
 
-export function getAllTaleIds() {
-  const fileNames = readdirSync(talesDirectory);
+export function getAllTaleIds(lang: Locale) {
+  const fileNames = readdirSync(getTalesDirectory(lang));
   return fileNames.map((fileName) => {
     return {
       params: {
@@ -58,7 +59,7 @@ export function getAllTaleIds() {
   });
 }
 
-export async function getTale(id: string) {
-  const tale = await getTaleByMarkdown(`${id}.md`);
+export async function getTale(id: string, lang: Locale) {
+  const tale = await getTaleByMarkdown(`${id}.md`, lang);
   return tale;
 }

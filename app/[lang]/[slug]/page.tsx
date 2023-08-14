@@ -1,9 +1,9 @@
-import { Tale, getTale } from "../fetchTales";
+import { Tale, getTale } from "../../../tales/fetch-tales";
 import { format } from "date-fns"; 
 import styles from "./page.module.css";
 
-export default async function Tale({ params }: { params: { slug: string } }) {
-  const tale = await getTale(params.slug);
+export default async function Tale({ params }: { params: { lang: Locale, slug: string } }) {
+  const tale = await getTale(params.slug, params.lang);
   const date = format(new Date(tale.date), "yyyy.MM.dd");
   return (
     <article className={styles.tale}>
@@ -22,13 +22,14 @@ export default async function Tale({ params }: { params: { slug: string } }) {
  * Dynamic Metadata
  */
 import type { Metadata } from "next";
+import { Locale } from "@/i18n/i18n-config";
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: { lang: Locale, slug: string };
 }): Promise<Metadata> {
-  const tale = await getTale(params.slug);
+  const tale = await getTale(params.slug, params.lang);
   return {
     title: tale?.title,
     description: tale?.description,
