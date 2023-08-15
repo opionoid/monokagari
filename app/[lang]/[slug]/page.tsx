@@ -6,6 +6,7 @@ export default async function Tale({ params }: { params: { lang: Locale, slug: s
   const tale = await getTale(params.slug, params.lang);
   const date = format(new Date(tale.date), "yyyy.MM.dd");
   return (
+    <main>
     <article className={styles.tale}>
       <header>
         <h1>{tale.title}</h1>
@@ -15,6 +16,7 @@ export default async function Tale({ params }: { params: { lang: Locale, slug: s
       </header>
       <section dangerouslySetInnerHTML={{ __html: tale.contentHtml }} />
     </article>
+    </main>
   );
 }
 

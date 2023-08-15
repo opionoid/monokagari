@@ -1,6 +1,6 @@
 :root {
   /** Text */
-  --color-text-body: #28303c;
+  --color-text-body: #171d25;
   --color-text-description: #28303c;
   --color-text-placeholder: #364051;
   --color-text-on-fill: #fef8e7;
@@ -22,9 +22,9 @@
   --color-button-disabled: #7080a2;
 
   /** Background */
-  --color-background-primary: #fef8e7;
-  --color-background-secondary: #d8d3c4;
-  --color-background-tertiary: #ffffff;
+  --color-background-primary: #d1c193;
+  --color-background-secondary: #9f936e;
+  --color-background-tertiary: #ebe4c7;
 
   /** Border */
   --color-border-field: #28303c;

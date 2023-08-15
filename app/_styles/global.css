@@ -4,10 +4,10 @@
   box-sizing: border-box;
 }
 
-
-html {
-  font-family: Noto Sans JP, sans-serif;
+body {
   background-color: var(--color-background-primary);
+  background-image: url("/textures/bg-paper.jpg");
+  background-repeat: round;
   color: var(--color-text-body);
 }
 
