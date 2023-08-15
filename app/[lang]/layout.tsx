@@ -1,6 +1,6 @@
 import '@/app/_styles/index.css'
 import { Locale, i18n } from '../../i18n/i18n-config'
-import { Sawarabi_Mincho, Hina_Mincho, Zen_Old_Mincho, Shippori_Mincho, Noto_Serif_JP }from 'next/font/google'
+import { Sawarabi_Mincho, Hina_Mincho, Zen_Antique_Soft, Zen_Old_Mincho, Shippori_Mincho, Noto_Serif_JP }from 'next/font/google'
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }))
@@ -11,10 +11,9 @@ export const metadata = {
   description: 'TRPGなどのシナリオ集',
 }
 
-// 見出し（W400のみ存在）
-const hinaMincho = Hina_Mincho({ weight: "400", subsets: ["latin"], variable: '--font-hina-mincho', display: 'swap' })
-// 本文 TODO: ひな明朝と合わないような？
-const zenOldMincho = Zen_Old_Mincho({ weight: "400", subsets: ["latin"], variable: '--font-zen-old-mincho', display: 'swap' })
+// FIXME: 好きなんだけどW400しかないから特に物語詳細ページで単調になる
+const fontHeading = Hina_Mincho({ weight: "400", subsets: ["latin"], variable: '--font-heading', display: 'swap' })
+const fontBody = Hina_Mincho({ weight: "400", subsets: ["latin"], variable: '--font-body', display: 'swap' })
 
 export default function RootLayout({
   children,
@@ -25,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang={params.lang}>
-      <body className={`${hinaMincho.variable} ${zenOldMincho.variable}`}>
+      <body className={`${fontHeading.variable} ${fontBody.variable}`}>
         {children}
       </body>
     </html>
