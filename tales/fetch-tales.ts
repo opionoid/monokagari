@@ -4,16 +4,9 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 import { Locale } from "@/i18n/i18n-config";
+import { Tale } from "./tale-type";
 
 const getTalesDirectory = (lang: Locale) => path.join(process.cwd(), `tales/${lang}`);
-
-export type Tale = {
-  id: string;
-  date: string;
-  title: string;
-  description: string;
-  contentHtml: string;
-};
 
 async function getTaleByMarkdown (fileName: string, lang: Locale) {
   const id = fileName.replace(/\.md$/, "");
