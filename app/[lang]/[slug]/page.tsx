@@ -1,4 +1,4 @@
-import { Tale, getTale } from "../../../tales/fetch-tales";
+import { getTale } from "../../../tales/fetch-tales";
 import { format } from "date-fns"; 
 import styles from "./page.module.css";
 
@@ -34,6 +34,6 @@ export async function generateMetadata({
   const tale = await getTale(params.slug, params.lang);
   return {
     title: tale?.title,
-    description: tale?.description,
+    description: tale?.lead,
   };
 }
