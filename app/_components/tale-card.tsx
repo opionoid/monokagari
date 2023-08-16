@@ -72,8 +72,10 @@ export default function TaleCard({
   }, []);
 
   const thumbnailPosition = {
-    
+    // TODO:
   }
+
+  if (typeof window === "undefined") return null;
 
   return (
     <PixiStage
