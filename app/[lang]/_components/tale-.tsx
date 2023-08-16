@@ -10,11 +10,13 @@ import {
 } from "@pixi/react";
 import {
   DisplacementFilter,
+  FederatedPointerEvent,
   Sprite,
   TextStyle,
   Texture,
 } from "pixi.js";
-import { useEffect, useState } from "react";
+import { Tween, Easing } from "@tweenjs/tween.js";
+import { use, useEffect, useRef, useState } from "react";
 
 import { Hina_Mincho } from "next/font/google";
 
@@ -24,7 +26,7 @@ const font = Hina_Mincho({
   display: "swap",
 });
 
-export default function TaleCard({
+export default function TopHero({
   id,
   date,
   title,
@@ -32,7 +34,7 @@ export default function TaleCard({
   system,
   hours,
   numOfPlayers,
-}: Tale & { reverse?: boolean }) {
+}: Tale) {
   const textStyle = new TextStyle({
     fontFamily: font.style.fontFamily,
     fontSize: "5rem",
@@ -70,10 +72,6 @@ export default function TaleCard({
     resize();
     return () => window.removeEventListener("resize", resize);
   }, []);
-
-  const thumbnailPosition = {
-    
-  }
 
   return (
     <PixiStage
