@@ -9,6 +9,7 @@ export default function PixiProvider({
   children: React.ReactNode;
 }) {
   return (
+    typeof window === "undefined" ? children :
     <AppProvider
       value={
         new Application({
