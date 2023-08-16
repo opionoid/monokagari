@@ -38,7 +38,7 @@ export default function TaleCard({
     fontSize: "5rem",
   });
 
-  const filterTexture = Texture.from("https://picsum.photos/id/404/1440/600");
+  const filterTexture = Texture.from("https://picsum.photos/id/404/1440/600", { resourceOptions: { autoLoad: false }});
   const displacementFilter = new DisplacementFilter(
     new Sprite(filterTexture) as any,
     -800
@@ -74,8 +74,6 @@ export default function TaleCard({
   const thumbnailPosition = {
     // TODO:
   }
-
-  if (typeof window === "undefined") return null;
 
   return (
     <PixiStage
