@@ -1,12 +1,7 @@
 import "@/app/_styles/index.css";
 import { Locale, i18n } from "../../i18n/i18n-config";
 import {
-  Sawarabi_Mincho,
   Hina_Mincho,
-  Zen_Antique_Soft,
-  Zen_Old_Mincho,
-  Shippori_Mincho,
-  Noto_Serif_JP,
 } from "next/font/google";
 import PixiProvider from "../_components/pixi-provider";
 
