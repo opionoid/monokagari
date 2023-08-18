@@ -2,11 +2,14 @@ import Link from "next/link";
 import { getSortedTales } from "../../tales/fetch-tales";
 import { Locale } from "@/i18n/i18n-config";
 import LocaleSwitcher from "../_components/locale-switcher";
-import TopHero from "./_components/tale-";
-import TaleCard from "../_components/tale-card";
+import dynamic from "next/dynamic";
 
 export default async function Tales({ params }: { params: { lang: Locale }}) {
   const [latestTale, ...tales] = await getSortedTales(params.lang);
+  const TaleCard = dynamic(() => import("../_components/tale-card"), {
+    loading: () => <p>Loading...</p> // TODO: skelton
+  });
+
   return (
     <main>
       {/** FIXME: next dev時のみエラーが発生する */}
