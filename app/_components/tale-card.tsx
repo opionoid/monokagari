@@ -24,9 +24,12 @@ export default function TaleCard({ id, date, title, lead, system, hours, numOfPl
   const textStyle = new TextStyle({
     fontFamily: font.style.fontFamily,
     fontSize: "5rem",
+    dropShadow: true,
+    dropShadowDistance: 2,
+    dropShadowAlpha: 0.3
   });
 
-  const filterTexture = Texture.from("https://picsum.photos/id/404/1440/600");
+  const filterTexture = Texture.from(`https://picsum.photos/seed/c${id}/1440/600`);
   const displacementFilter = new DisplacementFilter(new Sprite(filterTexture) as any, 3000);
   const [hovered, setHovered] = useState(false);
   const handleMouseEnter = () => setHovered(true);
@@ -41,8 +44,8 @@ export default function TaleCard({ id, date, title, lead, system, hours, numOfPl
       displacementFilter.scale.x -= 12;
       displacementFilter.scale.y -= 12;
     } else {
-      displacementFilter.scale.x -= 1;
-      displacementFilter.scale.y -= 1;
+      displacementFilter.scale.x -= 0.2;
+      displacementFilter.scale.y -= 0.2;
     }
   });
 
@@ -80,7 +83,7 @@ export default function TaleCard({ id, date, title, lead, system, hours, numOfPl
           <PixiSprite
             x={10}
             y={15}
-            image={"https://picsum.photos/id/894/1440/600"}
+            image={`https://picsum.photos/seed/${id}/1440/600`}
             width={size.width - 20}
             height={size.height - 30}
           />
