@@ -1,4 +1,3 @@
-import { getTale } from "../../../tales/fetch-tales";
 import { format } from "date-fns";
 import styles from "./page.module.css";
 
