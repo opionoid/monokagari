@@ -28,8 +28,16 @@
   text-indent: 1.5em;
 }
 
-.tale p:first-of-type::first-letter {
-  initial-letter: 3 2; /* サンクンキャップ */
+.tale h2 + p::first-letter {
+  /*
+  initial-letter: 2 2;
+  -webkit-initial-letter: 2 2;
+  */
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 0.85;
+  display: inline-block;
+  padding-right: 0.2ch;
 }
 
 /**

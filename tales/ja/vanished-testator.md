@@ -1,5 +1,5 @@
 ---
-title: "記憶の中の巨人"
+title: "現れなかった遺言者"
 date: "2023-08-05"
 system: "murder-mystery"
 hours: "3"

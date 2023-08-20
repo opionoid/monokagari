@@ -1,0 +1,65 @@
+.tale-card {
+  display: block;
+  position: relative;
+  max-height: 240px;
+}
+
+.tale-card:hover {
+  animation: mist 0.7s ease-out;
+}
+
+@keyframes mist {
+  0% {
+    filter: blur(0);
+  }
+  60% {
+    filter: blur(6px);
+  }
+  100% {
+    filter: blur(0);
+  }
+}
+
+.tale-card > .content {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--space-y-l) var(--space-x-l);
+  width: 100%;
+  max-width: 40rem;
+}
+
+@media screen and (max-width: 40em) {
+  .tale-card > .content {
+    padding: var(--space-y-m) var(--space-x-m);
+    left: var(--space-x-s);
+    transform: none;
+  }
+}
+
+.content > .title {
+  color: var(--color-text-body);
+}
+
+.content > .lead {
+  display: -webkit-box;
+  margin: var(--space-y-s) var(--space-x-m) var(--space-y-xs) var(--space-x-m);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.content > .lead:not(:visited) {
+  color: var(--color-text-body);
+}
+
+.content > .attributes {
+  color: var(--color-text-body);
+  display: flex;
+  list-style: none;
+  width: 100%;
+  padding-right: var(--space-x-l);
+  gap: var(--space-x-s);
+  justify-content: flex-end;
+}
