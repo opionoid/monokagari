@@ -3,10 +3,10 @@
   "ignoreCommand": "pnpm dlx turbo-ignore",
   "functions": {
     "app/api/[lang]/tales/route.ts": {
-      "includingFiles": "tales/**"
+      "includeFiles": "tales/**"
     },
     "app/api/[lang]/tales/[id]/route.ts": {
-      "includingFiles": "tales/**"
+      "includeFiles": "tales/**"
     }
   }
 }
