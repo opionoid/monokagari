@@ -1,3 +1,5 @@
+import "server-only";
+
 import fs, { readdirSync } from "fs";
 import path from "path";
 import matter from "gray-matter";
