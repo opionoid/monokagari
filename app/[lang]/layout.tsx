@@ -1,8 +1,6 @@
 import "@/app/_styles/index.css";
 import { Locale, i18n } from "../../i18n/i18n-config";
-import {
-  Hina_Mincho,
-} from "next/font/google";
+import { Hina_Mincho } from "next/font/google";
 import PixiProvider from "../_components/pixi-provider";
 
 export async function generateStaticParams() {
