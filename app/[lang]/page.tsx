@@ -8,7 +8,7 @@ export default async function Tales({ params }: { params: { lang: Locale } }) {
   const res = await $fetch(`/api/${params.lang}/tales`, {
     cache: "force-cache",
   });
-  if (res.headers.get('content-text') === "text/html") {
+  if (res.headers.get('content-type') === "text/html") {
     return null;
   }
   const tales: Tale[] = await res.json();
