@@ -9,6 +9,7 @@ export default async function Tales({ params }: { params: { lang: Locale } }) {
     cache: "force-cache",
   });
   const tales: Tale[] = await res.json();
+
   const TaleCard = dynamic(() => import("../_components/tale-card"), {
     loading: () => <p>Loading...</p>, // TODO: skelton
     ssr: false,
