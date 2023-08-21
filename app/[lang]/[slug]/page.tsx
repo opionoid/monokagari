@@ -20,7 +20,7 @@ export default async function Tale({
             <time dateTime={tale.date}>{date}</time>
           </small>
         </header>
-        <section dangerouslySetInnerHTML={{ __html: tale.contentHtml }} />
+        <section dangerouslySetInnerHTML={{ __html: unescape(tale.escapedHtml) }} />
       </article>
     </main>
   );
@@ -33,6 +33,7 @@ import type { Metadata } from "next";
 import { Locale } from "@/i18n/i18n-config";
 import { Tale } from "@/tales/tale-type";
 import { $fetch } from "@/app/api/helper";
+import { unescape } from "querystring";
 
 export async function generateMetadata({
   params,
