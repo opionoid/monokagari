@@ -10,6 +10,7 @@ export default async function Tale({
     cache: "force-cache",
   });
   const data = await res.json();
+  
   const tale = data.tale as Tale;
   const date = format(new Date(tale.date), "yyyy.MM.dd");
   return (
