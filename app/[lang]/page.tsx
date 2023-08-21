@@ -6,7 +6,7 @@ import { Tale } from "@/tales/tale-type";
 
 export default async function Tales({ params }: { params: { lang: Locale } }) {
   const res = await $fetch(`/api/${params.lang}/tales`, {
-    cache: "force-cache",
+    // cache: "force-cache",
   });
   const data = await res.json().catch(() => {
     console.error("failed to res.json()", params.lang, res);
