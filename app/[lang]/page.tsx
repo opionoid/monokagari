@@ -8,7 +8,8 @@ export default async function Tales({ params }: { params: { lang: Locale } }) {
   const res = await $fetch(`/api/${params.lang}/tales`, {
     // cache: "force-cache",
   });
-  const data = await res.json().catch(() => {
+  const data = await res.json().catch((e) => {
+    console.error("error", e)
     console.error("failed to res.json()", params.lang, res);
     return null;
   });
