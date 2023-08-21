@@ -6,7 +6,7 @@ export function $fetch(url: RequestInfo | URL, init?: RequestInit | undefined) {
   }
   const u =
     typeof url === "string"
-      ? `${process.env.VERCEL_URL || "http://localhost:3415/"}${url}`
+      ? `${"https://www.monokagari.com/" || "http://localhost:3415/"}${url}`
       : url;
   return fetch(u, init);
 }
