@@ -6,10 +6,15 @@ import { Tale } from "@/tales/tale-type";
 
 export default async function Tales({ params }: { params: { lang: Locale } }) {
   const res = await $fetch(`/api/${params.lang}/tales`, {
-    cache: "force-cache",
+    cache: "no-cache",
   });
-  const data = await res.json();
-  const tales = data.tales as Tale[];
+  const data = await res.json().catch((e) => {
+    console.error("error", e)
+    console.error("failed to res.text()", params.lang, res);
+    return null;
+  });
+  // console.log('data', data);
+  const tales: Tale[] = data?.tales ?? [];
 
   const TaleCard = dynamic(() => import("../_components/tale-card"), {
     loading: () => <p>Loading...</p>, // TODO: skelton

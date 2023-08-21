@@ -10,9 +10,10 @@ export default async function Tale({
     cache: "force-cache",
   });
   const data = await res.json();
-  
-  const tale = data.tale as Tale;
+  const tale = data?.tale ?? {};
   const date = format(new Date(tale.date), "yyyy.MM.dd");
+
+  if (!tale) return null;
   return (
     <main>
       <article className={styles.tale}>
@@ -45,7 +46,8 @@ export async function generateMetadata({
   const res = await $fetch(`/api/${params.lang}/tales/${params.slug}`, {
     cache: "force-cache",
   });
-  const tale: Tale = await res.json();
+  const data = await res.json();
+  const tale: Tale = data.tale;
   return {
     title: tale?.title,
     description: tale?.lead,

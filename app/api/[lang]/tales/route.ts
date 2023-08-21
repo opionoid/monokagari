@@ -2,17 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import { getTaleByMarkdown, getTalesDirectory } from "./helper";
 
-export async function GET(
-  _: NextRequest,
-  { params }: { params: { lang: string } }
-) {
+export async function GET(_req: NextRequest, { params }: { params: { lang: string } }) {
   const lang = params.lang;
 
   if (typeof lang !== "string" || (lang !== "ja" && lang !== "en")) {
-    return NextResponse.json(
-      { message: "invalid lang params" },
-      { status: 404 }
-    );
+    return NextResponse.json({ message: "invalid lang params", status: 404 });
   }
   async function getSortedTales(lang: "en" | "ja") {
     const fileNames = fs.readdirSync(getTalesDirectory(lang));
