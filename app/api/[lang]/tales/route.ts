@@ -32,5 +32,5 @@ export async function GET(
   }
 
   const tales = await getSortedTales(lang);
-  return NextResponse.json({ tales });
+  return NextResponse.json({ tales }, { headers: { "content-type": "application/json" }});
 }

@@ -15,5 +15,5 @@ export async function GET(
   }
 
   const tale = await getTaleByMarkdown(`${id}.md`, lang);
-  return NextResponse.json({ tale });
+  return NextResponse.json({ tale }, { headers: { "content-type": "application/json" }});
 }
