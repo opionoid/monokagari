@@ -6,20 +6,12 @@ export default async function Tale({
 }: {
   params: { lang: Locale; slug: string };
 }) {
-  // const res = await $fetch(`/api/${params.lang}/tales/${params.slug}`, {
-  //   cache: "force-cache",
-  // });
-  // const tale: Tale = await res.json();
-  const tale: Tale = {
-    id: "1",
-    date: "2021-01-01",
-    title: "title",
-    lead: "lead",
-    system: "call-of-cthulhu",
-    hours: "1",
-    numOfPlayers: "1",
-    contentHtml: "<p>content</p>",
-  }
+  const res = await $fetch(`/api/${params.lang}/tales/${params.slug}`, {
+    cache: "force-cache",
+  });
+  const data = await res.json();
+  
+  const tale = data.tale as Tale;
   const date = format(new Date(tale.date), "yyyy.MM.dd");
   return (
     <main>
@@ -30,7 +22,7 @@ export default async function Tale({
             <time dateTime={tale.date}>{date}</time>
           </small>
         </header>
-        <section dangerouslySetInnerHTML={{ __html: tale.contentHtml }} />
+        <section dangerouslySetInnerHTML={{ __html: unescape(tale.escapedHtml) }} />
       </article>
     </main>
   );
@@ -43,6 +35,7 @@ import type { Metadata } from "next";
 import { Locale } from "@/i18n/i18n-config";
 import { Tale } from "@/tales/tale-type";
 import { $fetch } from "@/app/api/helper";
+import { unescape } from "querystring";
 
 export async function generateMetadata({
   params,

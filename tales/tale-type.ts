@@ -11,5 +11,5 @@ export type TaleMatter = {
 
 export type Tale = {
   id: string;
-  contentHtml: string;
+  escapedHtml: string;
 } & TaleMatter;

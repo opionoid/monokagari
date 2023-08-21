@@ -5,11 +5,12 @@ import { $fetch } from "../api/helper";
 import { Tale } from "@/tales/tale-type";
 
 export default async function Tales({ params }: { params: { lang: Locale } }) {
-  // const res = await $fetch(`/api/${params.lang}/tales`, {
-  //   cache: "force-cache",
-  // });
-  // const tales: Tale[] = await res.json();
-  const tales: Tale[] = [];
+  const res = await $fetch(`/api/${params.lang}/tales`, {
+    cache: "force-cache",
+  });
+  const data = await res.json();
+  const tales = data.tales as Tale[];
+
   const TaleCard = dynamic(() => import("../_components/tale-card"), {
     loading: () => <p>Loading...</p>, // TODO: skelton
     ssr: false,
@@ -19,7 +20,7 @@ export default async function Tales({ params }: { params: { lang: Locale } }) {
     <main>
       {/** FIXME: next dev時のみエラーが発生する */}
       {process.env.NODE_ENV !== "development" && <LocaleSwitcher />}
-      {tales.map((tale) => (
+      {tales?.map((tale) => (
         <TaleCard key={tale.id} {...tale} />
       ))}
     </main>
