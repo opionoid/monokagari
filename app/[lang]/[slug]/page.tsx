@@ -12,7 +12,8 @@ export default async function Tale({
   if (res.headers.get('content-type') === "text/html") {
     return null
   }
-  const tale: Tale = await res.json();
+  const data = await res.json();
+  const tale = data.tale as Tale;
   const date = format(new Date(tale.date), "yyyy.MM.dd");
   return (
     <main>
