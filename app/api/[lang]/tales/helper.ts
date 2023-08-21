@@ -20,8 +20,6 @@ export async function getTaleByMarkdown(fileName: string, lang: "en" | "ja") {
     .process(matterResult.content);
   const escapedHtml = escape(processedContent.toString());
 
-  console.log('escapedHtml', escapedHtml)
-
   return {
     id,
     escapedHtml,

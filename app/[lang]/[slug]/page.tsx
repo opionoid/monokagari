@@ -9,7 +9,8 @@ export default async function Tale({
   const res = await $fetch(`/api/${params.lang}/tales/${params.slug}`, {
     cache: "force-cache",
   });
-  const tale: Tale = await res.json();
+  const data = await res.json();
+  const tale = data.tale as Tale;
   const date = format(new Date(tale.date), "yyyy.MM.dd");
   return (
     <main>
