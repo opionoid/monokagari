@@ -6,10 +6,20 @@ export default async function Tale({
 }: {
   params: { lang: Locale; slug: string };
 }) {
-  const res = await $fetch(`/api/${params.lang}/tales/${params.slug}`, {
-    cache: "force-cache",
-  });
-  const tale: Tale = await res.json();
+  // const res = await $fetch(`/api/${params.lang}/tales/${params.slug}`, {
+  //   cache: "force-cache",
+  // });
+  // const tale: Tale = await res.json();
+  const tale: Tale = {
+    id: "1",
+    date: "2021-01-01",
+    title: "title",
+    lead: "lead",
+    system: "call-of-cthulhu",
+    hours: "1",
+    numOfPlayers: "1",
+    contentHtml: "<p>content</p>",
+  }
   const date = format(new Date(tale.date), "yyyy.MM.dd");
   return (
     <main>
