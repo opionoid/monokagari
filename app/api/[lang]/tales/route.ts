@@ -3,7 +3,7 @@ import fs from "fs";
 import { getTaleByMarkdown, getTalesDirectory } from "./helper";
 
 export async function GET(
-  _: NextRequest,
+  _req: NextRequest,
   { params }: { params: { lang: string } }
 ) {
   const lang = params.lang;
@@ -32,5 +32,5 @@ export async function GET(
   }
 
   const tales = await getSortedTales(lang);
-  return NextResponse.json(tales);
+  return NextResponse.json({ tales });
 }

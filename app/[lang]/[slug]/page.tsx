@@ -49,7 +49,8 @@ export async function generateMetadata({
   if (res.headers.get('content-text') === "text/html") {
     return {}
   }
-  const tale: Tale = await res.json();
+  const data = await res.json();
+  const tale: Tale = data.tale;
   return {
     title: tale?.title,
     description: tale?.lead,

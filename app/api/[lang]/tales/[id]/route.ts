@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getTaleByMarkdown } from "../helper";
 
 export async function GET(
-  _: NextRequest,
+  _req: NextRequest,
   { params }: { params: { lang: string; id: string } }
 ) {
   const { lang, id } = params;
@@ -15,5 +15,5 @@ export async function GET(
   }
 
   const tale = await getTaleByMarkdown(`${id}.md`, lang);
-  return NextResponse.json(tale);
+  return NextResponse.json({ tale });
 }
