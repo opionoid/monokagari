@@ -11,8 +11,8 @@ export default async function Tales({ params }: { params: { lang: Locale } }) {
   if (res.headers.get('content-type') === "text/html") {
     return null;
   }
-  const data = await res.json();
-  const tales: Tale[] = data.tales;
+  const data = await res.json().catch(() => null);
+  const tales: Tale[] = data?.tales ?? [];
   const TaleCard = dynamic(() => import("../_components/tale-card"), {
     loading: () => <p>Loading...</p>, // TODO: skelton
     ssr: false,
