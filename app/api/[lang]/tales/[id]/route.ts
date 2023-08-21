@@ -8,10 +8,7 @@ export async function GET(
   const { lang, id } = params;
 
   if (typeof lang !== "string" || (lang !== "ja" && lang !== "en")) {
-    return NextResponse.json(
-      { message: "invalid lang params" },
-      { status: 404 }
-    );
+    return NextResponse.json({ message: "invalid lang params", status: 404 });
   }
 
   const tale = await getTaleByMarkdown(`${id}.md`, lang);

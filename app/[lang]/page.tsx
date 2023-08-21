@@ -8,14 +8,12 @@ export default async function Tales({ params }: { params: { lang: Locale } }) {
   const res = await $fetch(`/api/${params.lang}/tales`, {
     cache: "force-cache",
   });
-  if (res.headers.get('content-type') === "text/html") {
-    return null;
-  }
   const data = await res.json().catch(() => {
-    console.error("failed to res.json()", res);
+    console.error("failed to res.json()", params.lang, res);
     return null;
   });
   const tales: Tale[] = data?.tales ?? [];
+
   const TaleCard = dynamic(() => import("../_components/tale-card"), {
     loading: () => <p>Loading...</p>, // TODO: skelton
     ssr: false,
