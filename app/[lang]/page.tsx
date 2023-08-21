@@ -22,7 +22,7 @@ export default async function Tales({ params }: { params: { lang: Locale } }) {
     <main>
       {/** FIXME: next dev時のみエラーが発生する */}
       {process.env.NODE_ENV !== "development" && <LocaleSwitcher />}
-      {tales.map((tale) => (
+      {tales?.map((tale) => (
         <TaleCard key={tale.id} {...tale} />
       ))}
     </main>
