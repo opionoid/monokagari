@@ -9,6 +9,7 @@ body {
   background-image: url("/textures/bg-paper.jpg");
   background-repeat: round;
   color: var(--color-text-body);
+  overflow-x: hidden;
 }
 
 svg {

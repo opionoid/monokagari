@@ -3,6 +3,7 @@ import LocaleSwitcher from "../_components/locale-switcher";
 import dynamic from "next/dynamic";
 import { $fetch } from "../api/helper";
 import { Tale } from "@/tales/tale-type";
+import Hero from "../_components/hero";
 
 export default async function Tales({ params }: { params: { lang: Locale } }) {
   const res = await $fetch(`/api/${params.lang}/tales`, {
@@ -13,7 +14,6 @@ export default async function Tales({ params }: { params: { lang: Locale } }) {
     console.error("failed to res.text()", params.lang, res);
     return null;
   });
-  // console.log('data', data);
   const tales: Tale[] = data?.tales ?? [];
 
   const TaleCard = dynamic(() => import("../_components/tale-card"), {
@@ -25,6 +25,11 @@ export default async function Tales({ params }: { params: { lang: Locale } }) {
     <main>
       {/** FIXME: next dev時のみエラーが発生する */}
       {process.env.NODE_ENV !== "development" && <LocaleSwitcher />}
+      <Hero />
+      {/** TODO: nav */}
+      <nav>
+        
+      </nav>
       {tales?.map((tale) => (
         <TaleCard key={tale.id} {...tale} />
       ))}
