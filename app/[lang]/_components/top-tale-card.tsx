@@ -9,7 +9,7 @@ import {
 } from "@pixi/react";
 import { DisplacementFilter, Sprite, Texture } from "pixi.js";
 import { useEffect, useState } from "react";
-import styles from "./tale-card.module.css";
+import styles from "./top-tale-card.module.css";
 import Link from "next/link";
 
 export default function TaleCard({

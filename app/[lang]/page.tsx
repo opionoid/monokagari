@@ -3,7 +3,7 @@ import LocaleSwitcher from "../_components/locale-switcher";
 import dynamic from "next/dynamic";
 import { $fetch } from "../api/helper";
 import { Tale } from "@/tales/tale-type";
-import TopHero from "../_components/top-hero";
+import TopHero from "./_components/top-hero";
 
 export default async function Tales({ params }: { params: { lang: Locale } }) {
   const res = await $fetch(`/api/${params.lang}/tales`, {
@@ -16,7 +16,7 @@ export default async function Tales({ params }: { params: { lang: Locale } }) {
   });
   const tales: Tale[] = data?.tales ?? [];
 
-  const TaleCard = dynamic(() => import("../_components/tale-card"), {
+  const TaleCard = dynamic(() => import("./_components/top-tale-card"), {
     loading: () => <p>Loading...</p>, // TODO: skelton
     ssr: false,
   });
