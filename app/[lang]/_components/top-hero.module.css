@@ -1,0 +1,33 @@
+.hero {
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    display: block;
+    margin: var(--space-y-xl) auto;
+    font-size: 9rem;
+    text-align: start;
+    line-height: 1;
+    transform: translateX(10%);
+}
+
+.mo {
+    font-size: 20rem;
+}
+
+.kagari {
+    display: block;
+    margin-right: -7rem;
+}
+
+@media (width < 768px) {
+    .hero {
+        font-size: 6rem;
+    }
+
+    .mo {
+        font-size: 15rem;
+    }
+
+    .kagari {
+        margin-right: -5rem;
+    }
+}

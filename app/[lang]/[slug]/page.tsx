@@ -7,7 +7,7 @@ export default async function Tale({
   params: { lang: Locale; slug: string };
 }) {
   const res = await $fetch(`/api/${params.lang}/tales/${params.slug}`, {
-    cache: "force-cache",
+    // cache: "no-cache",
   });
   const data = await res.json();
   const tale = data?.tale ?? {};
@@ -17,13 +17,13 @@ export default async function Tale({
   return (
     <main>
       <article className={styles.tale}>
-        <header>
-          <h1>{tale.title}</h1>
-          <small>
-            <time dateTime={tale.date}>{date}</time>
-          </small>
-        </header>
-        <section dangerouslySetInnerHTML={{ __html: unescape(tale.escapedHtml) }} />
+        <h1>{tale.title}</h1>
+        <small>{date}
+        </small>
+        <p>{tale.lead}</p>
+        <section
+          dangerouslySetInnerHTML={{ __html: unescape(tale.escapedHtml) }}
+        />
       </article>
     </main>
   );
