@@ -6,10 +6,7 @@ export default function TopNavigation() {
     <nav className={styles["top-navigation"]}>
       <ul className={styles["list"]}>
         <li>
-          <Link href="/trpg">TRPG一覧</Link>
-        </li>
-        <li>
-          <Link href="/mypage">栞</Link>
+          <Link href="/mypage">アカウント</Link>
         </li>
       </ul>
     </nav>
