@@ -4,6 +4,12 @@
     "start": "deno run -A --node-modules-dir npm:astro@latest dev",
     "build": "deno run -A --node-modules-dir npm:astro@latest build",
     "preview": "deno run -A --node-modules-dir npm:astro@latest preview",
-    "astro": "deno run -A --node-modules-dir npm:astro@latest"
+    "astro": "deno run -A --node-modules-dir npm:astro@latest",
+    "gen-db": "deno run -A --node-modules-dir npm:drizzle-kit@latest generate:pg",
+    "push-db": "deno run -A --node-modules-dir npm:drizzle-kit@latest push:pg"
+  },
+  "imports": {
+    "drizzle-orm": "https://deno.land/x/drizzle/mod.ts",
+    "drizzle-orm/pg-core": "https://deno.land/x/drizzle/pg-core.ts"
   }
 }
