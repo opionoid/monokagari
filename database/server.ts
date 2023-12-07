@@ -1,10 +1,10 @@
-import { zValidator } from 'npm:@hono/zod-validator';
-import { createClient } from 'npm:@libsql/client';
-import { eq } from 'npm:drizzle-orm';
-import { drizzle } from 'npm:drizzle-orm/libsql';
-import { Hono } from 'npm:hono';
-import { cors } from 'npm:hono/cors';
-import { type z } from 'npm:zod';
+import { zValidator } from '@hono/zod-validator';
+import { createClient } from '@libsql/client';
+import { eq } from 'drizzle-orm';
+import { drizzle } from 'drizzle-orm/libsql';
+import { Hono } from 'hono';
+import { cors } from 'hono/cors';
+import { type z } from 'zod';
 import { DB_URL, DB_AUTH_TOKEN } from './env.ts';
 import { insertPostSchema, insertUserSchema, posts, selectPostSchema, selectUserSchema, users } from './schema.ts';
 import { aggregateOneToMany } from './utils.ts';

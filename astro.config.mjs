@@ -1,7 +1,4 @@
-import { defineConfig } from "npm:astro@latest/config";
-import deno from "npm:@astrojs/deno@5.0.1";
+import { defineConfig } from 'astro/config';
 
-export default defineConfig({
-  output: "server",
-  adapter: deno(),
-});
+// https://astro.build/config
+export default defineConfig({});

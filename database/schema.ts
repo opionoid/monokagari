@@ -1,6 +1,6 @@
-import { sql } from 'npm:drizzle-orm';
-import { integer, sqliteTable, text } from 'npm:drizzle-orm/sqlite-core';
-import { createInsertSchema, createSelectSchema } from 'npm:drizzle-zod';
+import { sql } from 'drizzle-orm';
+import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
+import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
 
 export const users = sqliteTable('users', {
 	id: integer('id').primaryKey(),
