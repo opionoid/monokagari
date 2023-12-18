@@ -1,11 +1,16 @@
 {
   "tasks": {
-    "dev": "deno run -A --node-modules-dir npm:astro@latest dev",
-    "start": "deno run -A --node-modules-dir npm:astro@latest dev",
-    "build": "deno run -A --node-modules-dir npm:astro@latest build",
-    "preview": "deno run -A --node-modules-dir npm:astro@latest preview",
-    "astro": "deno run -A --node-modules-dir npm:astro@latest",
+    "client-dev": "cd ./client && deno run -A --node-modules-dir npm:astro@3 dev",
+    "client-build": "cd ./client && deno run -A --node-modules-dir npm:astro@3 build",
+    "client-preview": "cd ./client &&  deno run -A --node-modules-dir npm:astro@3 preview",
+    "server-oauth": "cd ./server && deno run --unstable --allow-env --allow-net ./index.ts",
+    "db-mock": "cd ./db && deno run --unstable --allow-env --allow-net ./mock/index.ts"
   },
   "imports": {
+    "@astrojs/deno": "npm:@astrojs/deno@latest",
+    "astro": "npm:astro@3",
+    "astro/client": "npm:astro@3/client",
+    "astro/config": "npm:astro@3/config",
+    "deno_kv_oauth/mod": "https://deno.land/x/deno_kv_oauth@v0.10.0/mod.ts"
   }
 }

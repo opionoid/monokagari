@@ -1,5 +1,9 @@
 {
-  "deno.enable": true,
-  "deno.lint": true,
-  "editor.defaultFormatter": "denoland.vscode-deno"
+  /**
+   * Extensions Settings
+   */
+  "cSpell.ignoreRegExpList": ["[０-９Ａ-Ｚａ-ｚぁ-んァ-ヶ亜-熙纊-黑]+"],
+  "cSpell.words": [
+    "astro"
+  ],
 }
