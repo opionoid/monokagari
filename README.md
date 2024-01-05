@@ -1,1 +1,5 @@
-Update Astro after https://github.com/denoland/deno/issues/21501
+# Monokagari
+
+- [Player Handbook](https://github.com/opionoid/monokagari-players-handbook)
+- [Dashboard](https://github.com/opionoid/monokagari-dashboard)
+- [Core](https://github.com/opionoid/monokagari-core)
